@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"
+          text="Atras"
+          color="primary"
+          mode="ios">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   
+  <form #formulario="ngForm" (ngSubmit) = "onSubmit()">
+    <ion-list-header>
+       <ion-label position="floating">
+         Registro de Usuario 
+       </ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="floating">
+        Nombres:
+      </ion-label>
+        <ion-input type="nombres" placeholder="Nombres" name="nombres" [(ngModel)]="usuario.nombres"
+                   required>
+        </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Apellidos:
+      </ion-label>
+        <ion-input type="apellidos" placeholder="Apellidos" name="apellidos" [(ngModel)]="usuario.apellidos"
+                   required>
+        </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Correo:
+      </ion-label>
+      <ion-input  type="email" placeholder="Email" name="email" [(ngModel)]="usuario.email"
+                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                  required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Contraseña: 
+      </ion-label>
+      <ion-input type="password" placeholder="Contraseña"
+                 name="password" [(ngModel)]= "usuario.password"
+                 required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Teléfono:
+      </ion-label>
+      <ion-input  type="telefono" placeholder="Telefono" name="telefono" [(ngModel)]="usuario.telefono"
+                  
+                  required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+      País:
+      </ion-label>
+        <ion-input type="pais" placeholder="Pais" name="pais" [(ngModel)]="usuario.pais"
+                 required>
+        </ion-input>
+    </ion-item>
+    <ion-button [disabled] ="formulario.invalid"
+                type="submit" expand="block" routerLink="/inicio">
+          Registrarse
+    </ion-button>
+  </form>
+
+</ion-content>

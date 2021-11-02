@@ -20,15 +20,21 @@ export class AppComponent {
       name: 'Inicio', 
       redirecTo: '/inicio'
     },
+ 
     {
       icon: 'person-circle-outline',
-      name: 'Registrarse', 
-      redirecTo: '/formulario'
+      name: 'Iniciar Sesión', 
+      redirecTo: '/iniciosesion'
     },
     {
       icon: 'grid-outline', 
       name: 'Lista', 
       redirecTo: '/lista'
+    },
+    {
+      icon: 'grid-outline', 
+      name: 'Clima', 
+      redirecTo: '/noticia'
     }
   ]
 

@@ -25,11 +25,16 @@ const routes: Routes = [
   },
   {
     path: 'bienvenido',
-    loadChildren: () => import('./bienvenido/bienvenido.module').then( m => m.BienvenidoPageModule)
+    loadChildren: () => import('./pages/bienvenido/bienvenido.module').then( m => m.BienvenidoPageModule)
   },
   {
     path: 'iniciosesion',
     loadChildren: () => import('./pages/iniciosesion/iniciosesion.module').then( m => m.IniciosesionPageModule)
+  },
+ 
+  {
+    path: 'noticia',
+    loadChildren: () => import('./pages/noticia/noticia.module').then( m => m.NoticiaPageModule)
   },
 ];
 

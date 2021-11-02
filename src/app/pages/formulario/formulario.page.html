@@ -12,68 +12,58 @@
 </ion-header>
 
 <ion-content>
-   
-  <form #formulario="ngForm" (ngSubmit) = "onSubmit()">
-    <ion-list-header>
-       <ion-label position="floating">
-         Registro de Usuario 
-       </ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-label position="floating">
-        Nombres:
-      </ion-label>
-        <ion-input type="nombres" placeholder="Nombres" name="nombres" [(ngModel)]="usuario.nombres"
-                   required>
-        </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">
-        Apellidos:
-      </ion-label>
-        <ion-input type="apellidos" placeholder="Apellidos" name="apellidos" [(ngModel)]="usuario.apellidos"
-                   required>
-        </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">
-        Correo:
-      </ion-label>
-      <ion-input  type="email" placeholder="Email" name="email" [(ngModel)]="usuario.email"
-                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-                  required>
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">
-        Contraseña: 
-      </ion-label>
-      <ion-input type="password" placeholder="Contraseña"
-                 name="password" [(ngModel)]= "usuario.password"
-                 required>
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">
-        Teléfono:
-      </ion-label>
-      <ion-input  type="telefono" placeholder="Telefono" name="telefono" [(ngModel)]="usuario.telefono"
-                  
-                  required>
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">
-      País:
-      </ion-label>
-        <ion-input type="pais" placeholder="Pais" name="pais" [(ngModel)]="usuario.pais"
-                 required>
-        </ion-input>
-    </ion-item>
-    <ion-button [disabled] ="formulario.invalid"
-                type="submit" expand="block" routerLink="/inicio">
-          Registrarse
-    </ion-button>
-  </form>
+  <ion-item>
+    <ion-label position="fixed">Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="newDato.nom"></ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label position="fixed">Apellido</ion-label>
+    <ion-input type="text" [(ngModel)]="newDato.apellido"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="fixed">Edad</ion-label>
+    <ion-input type="number" [(ngModel)]="newDato.edad"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Correo</ion-label>
+    <ion-input type="text" [(ngModel)]="newDato.correo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Telefono</ion-label>
+    <ion-input type="number" [(ngModel)]="newDato.telefono"></ion-input>
+  </ion-item>
+  
+
+  <ion-button (click)="addDatos()" expand="full">
+    Agregar datos
+  </ion-button>
+
+  <ion-list #myList>
+    <ion-list-header>
+      <ion-label>Mis Datos</ion-label>
+    </ion-list-header>
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let dato of datos">
+        <ion-item>
+          <ion-label text-wrap> 
+            <h3>{{dato.nom}}</h3>
+            <ion-text color="secondary">
+              <p>{{dato.apellido}}</p>
+            </ion-text>
+            <p>{{dato.modified | date: 'short'}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="secondary" (click)="updateDatos(dato)">Actualizar</ion-item-option>
+         <ion-item-option color="danger" (click)="deleteDatos(dato)">Eliminar</ion-item-option> 
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-list>
 </ion-content>
+

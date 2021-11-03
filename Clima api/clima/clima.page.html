@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"
+          text="Atras"
+          color="primary"
+          mode="ios">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>El Clima</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-grid >
+    <ion-row>
+      <ion-col *ngFor="let climas of clima; let i=index">
+        <ion-card class="color">
+          <h2>{{i + 1 }}</h2>
+          <h3>{{climas.id}}</h3>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
